@@ -1,4 +1,1 @@
-# Manialib\Formatting
-
-Object interface for manipulating styles in Maniaplanet strings.
-
+More info: https://github.com/manialib/manialib
