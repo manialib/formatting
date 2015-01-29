@@ -20,13 +20,13 @@ class String implements StringInterface
     {
         $background = Color::StringToRgb24($backgroundColor);
         $this->string = preg_replace_callback('/(?<!\$)((?:\$[\$])*)(\$[0-9a-f][^\$]{0,2})/iu',
-            function($matches) use ($background) {
-            $color = Color::StringToRgb24($matches[2]);
-            $color = Color::Contrast($color, $background);
-            $color = Color::Rgb24ToRgb12($color);
-            $color = Color::Rgb12ToString($color);
-            return $matches[1].'$'.$color;
-        }, $this->string);
+            function ($matches) use ($background) {
+                $color = Color::StringToRgb24($matches[2]);
+                $color = Color::Contrast($color, $background);
+                $color = Color::Rgb24ToRgb12($color);
+                $color = Color::Rgb12ToString($color);
+                return $matches[1] . '$' . $color;
+            }, $this->string);
         return $this;
     }
 
@@ -42,12 +42,12 @@ class String implements StringInterface
         if (count($linkCodes[0])) {
             $this->string = (string)$this->doStripLinks(array_unique($linkCodes[0]));
         }
-        if(count($colorCodes[0])) {
-           $this->string = (string)$this->stripColors();
+        if (count($colorCodes[0])) {
+            $this->string = (string)$this->stripColors();
         }
         $pattern = sprintf('/(?<!\$)((?:\$[\$\[\]])*)\$[%s]/iu', $codes);
         $this->string = preg_replace($pattern, '$1', $this->string);
-        if(count($escapedChars[0])) {
+        if (count($escapedChars[0])) {
             $this->string = (string)$this->doStripEscapedChars(array_unique($escapedChars[0]));
         }
         return $this;

@@ -56,10 +56,10 @@ abstract class AbstractConverter implements ConverterInterface
     protected function parseString()
     {
         while ($this->lexer->moveNext()) {
-            if(in_array($this->lexer->lookahead, $this->lookaheadToSkip)) {
+            if (in_array($this->lexer->lookahead, $this->lookaheadToSkip)) {
                 continue;
             }
-            
+
             $value = $this->lexer->lookahead['value'];
             switch ($this->lexer->lookahead['type']) {
                 case Lexer::T_NONE:
@@ -111,7 +111,7 @@ abstract class AbstractConverter implements ConverterInterface
                     $this->upperCase();
                     break;
                 case Lexer::T_RESET_ALL:
-                    if($this->stylesStack) {
+                    if ($this->stylesStack) {
                         $style = $this->stylesStack[count($this->stylesStack) - 1];
                     } else {
                         $style = new Style();
@@ -159,7 +159,7 @@ abstract class AbstractConverter implements ConverterInterface
         if (
             substr($this->lexer->lookahead['value'], 1, 1) == '['
             && substr($this->lexer->lookahead['value'], -1, 1) == ']'
-            ) {
+        ) {
             //We are looking for a link like $h[xxx]yyy$h
             $this->lexer->moveNext();
             $matches = array();
@@ -183,14 +183,14 @@ abstract class AbstractConverter implements ConverterInterface
                     ($nextLookahead['type'] == Lexer::T_NONE || $nextLookahead['type'] == Lexer::T_ESCAPED_CHAR)
                 ) {
                     $link .= $nextLookahead['value'];
-                    if(substr($link, 0, 1) == '[') {
+                    if (substr($link, 0, 1) == '[') {
                         //It means that there is no closing square bracket $l[noclosingsquarebracket
                         array_push($this->lookaheadToSkip, $nextLookahead);
                     }
                 }
             } while ($nextLookahead !== null && !in_array($nextLookahead['type'], $endLinkTokens));
 
-            if(substr($link, 0, 1) == '[') {
+            if (substr($link, 0, 1) == '[') {
                 //It means that there is no closing square bracket $l[noclosingsquarebracket
                 $link = '';
             }
@@ -199,21 +199,37 @@ abstract class AbstractConverter implements ConverterInterface
     }
 
     abstract protected function none($value);
+
     abstract protected function escapedCharacter($value);
+
     abstract protected function color();
+
     abstract protected function shadowed();
+
     abstract protected function bold();
+
     abstract protected function italic();
+
     abstract protected function wide();
+
     abstract protected function narrow();
+
     abstract protected function medium();
+
     abstract protected function upperCase();
+
     abstract protected function resetAll();
+
     abstract protected function pushStyle();
+
     abstract protected function popStyle();
+
     abstract protected function openExternalLink($link);
+
     abstract protected function closeExternalLink();
+
     abstract protected function openInternalLink($link);
+
     abstract protected function closeInternalLink();
 
 }
