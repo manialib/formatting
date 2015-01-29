@@ -70,8 +70,8 @@ Will output:
 
 ## TODO
 
-[] Write more tests
-[] Image converter
+- Write more tests
+- Image converter
 
 ## Development guidelines
 
