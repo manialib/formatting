@@ -1,6 +1,6 @@
 # Manialib\Formatting
 
-[![Build Status](https://travis-ci.org/manialib/formatting.svg?branch=master)](https://travis-ci.org/manialib/formatting)
+[![Build Status](https://img.shields.io/travis/manialib/formatting.svg?style=flat-square)](https://travis-ci.org/manialib/formatting)
 [![Packagist Version](https://img.shields.io/packagist/v/manialib/formatting.svg?style=flat-square)](https://packagist.org/packages/manialib/formatting)
 [![Total Downloads](https://img.shields.io/packagist/dt/manialib/formatting.svg?style=flat-square)](https://packagist.org/packages/manialib/formatting)
 
@@ -27,7 +27,7 @@ your, feel free to open an issue and we'll try to help.
 ```json
 {
 	"require": {
-        "manialib/formatting": "4.0.*@dev"
+        "manialib/formatting": "4.0-beta"
     }
 }
 ```
@@ -74,6 +74,7 @@ Will output:
 
 ## Todo
 
+- Docblocks
 - Write more tests
 - Image converter
 
