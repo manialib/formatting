@@ -4,8 +4,8 @@ A simple PHP component for manipulating styles in [Maniaplanet](http://manaplane
 
 ## Work in progress
 
-This is a work in progress. Don't except stability, backwards compatibility, or anything like this until 4.0 is release. 
-If you want to work with this, feel free to open an issue to ask for a release. 
+This is a work in progress. Don't except stability, backwards compatibility, or anything like. If this is a problem for 
+your, feel free to open an issue and we'll try to help.
 
 ## Features
 
@@ -68,7 +68,7 @@ Will output:
 
 `php vendor/bin/phpunit`
 
-## TODO
+## Todo
 
 - Write more tests
 - Image converter
