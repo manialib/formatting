@@ -1,5 +1,9 @@
 # Manialib\Formatting
 
+[![Build Status](https://travis-ci.org/manialib/formatting.svg?branch=master)](https://travis-ci.org/manialib/formatting)
+[![Packagist Version](https://img.shields.io/packagist/v/league/flysystem.svg?style=flat-square)](https://packagist.org/packages/league/flysystem)
+[![Total Downloads](https://img.shields.io/packagist/dt/league/flysystem.svg?style=flat-square)](https://packagist.org/packages/league/flysystem)
+
 A simple PHP component for manipulating styles in [Maniaplanet](http://manaplanet.com) strings. 
 
 ## Work in progress
