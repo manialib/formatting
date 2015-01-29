@@ -1,10 +1,17 @@
 {
     "name": "manialib/formatting",
     "type": "library",
-    "description": "Object interface for manipulating styles in Maniaplanet strings.",
-    "keywords": ["Ubisoft", "Nadeo", "ManiaPlanet", "ShootMania", "TrackMania", "Manialib"],
+    "description": "A simple PHP component for manipulating styles in Maniaplanet strings.",
+    "keywords": [
+        "Ubisoft",
+        "Nadeo",
+        "Maniaplanet",
+        "Shootmania",
+        "Trackmania",
+        "Manialib"
+    ],
     "license": "MIT",
-    "homepage": "https://github.com/manialib",
+    "homepage": "https://github.com/manialib/formatting",
     "authors": [
         {
             "name": "Nadeo",
@@ -15,13 +22,18 @@
     "autoload": {
         "psr-4": {"Manialib\\": "src/Manialib/"}
     },
+    "autoload-dev": {
+        "psr-4": {"": "tests/"}
+    },
     "require": {
         "php": ">=5.5",
-        "doctrine/lexer": "1.0.*@dev"
+        "doctrine/lexer": "~1.0"
     },
-    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "~4.4"
+    },
     "archive": {
-        "exclude": ["/examples"]
+        "exclude": ["/tests"]
     },
     "extra": {
         "branch-alias": {
