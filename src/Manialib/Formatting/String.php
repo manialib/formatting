@@ -19,7 +19,8 @@ class String implements StringInterface
     public function contrastColors($backgroundColor)
     {
         $background = Color::StringToRgb24($backgroundColor);
-        $this->string = preg_replace_callback('/(?<!\$)((?:\$[\$])*)(\$[0-9a-f][^\$]{0,2})/iu',
+        $this->string = preg_replace_callback(
+            '/(?<!\$)((?:\$[\$])*)(\$[0-9a-f][^\$]{0,2})/iu',
             function ($matches) use ($background) {
                 $color = Color::StringToRgb24($matches[2]);
                 $color = Color::Contrast($color, $background);
@@ -27,7 +28,8 @@ class String implements StringInterface
                 $color = Color::Rgb12ToString($color);
 
                 return $matches[1].'$'.$color;
-            }, $this->string);
+            }, $this->string
+        );
 
         return $this;
     }
