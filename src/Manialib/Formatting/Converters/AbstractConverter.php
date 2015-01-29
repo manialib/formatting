@@ -50,6 +50,7 @@ abstract class AbstractConverter implements ConverterInterface
         if (!$this->result) {
             $this->parseString();
         }
+
         return $this->result;
     }
 
@@ -174,7 +175,7 @@ abstract class AbstractConverter implements ConverterInterface
             $endLinkTokens = array(
                 Lexer::T_EXTERNAL_LINK,
                 Lexer::T_INTERNAL_LINK,
-                Lexer::T_RESET_ALL
+                Lexer::T_RESET_ALL,
             );
             do {
                 $nextLookahead = $this->lexer->peek();
@@ -195,6 +196,7 @@ abstract class AbstractConverter implements ConverterInterface
                 $link = '';
             }
         }
+
         return $link;
     }
 
@@ -231,5 +233,4 @@ abstract class AbstractConverter implements ConverterInterface
     abstract protected function openInternalLink($link);
 
     abstract protected function closeInternalLink();
-
 }

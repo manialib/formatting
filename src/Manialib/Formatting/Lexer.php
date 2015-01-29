@@ -33,7 +33,7 @@ class Lexer extends \Doctrine\Common\Lexer\AbstractLexer
             '\$[hlp](\[[^\]]*\])',
             '\$[0-9a-f][^\$]{0,2}',
             '\$.',
-            '[^\$]*'
+            '[^\$]*',
         );
     }
 
@@ -111,6 +111,7 @@ class Lexer extends \Doctrine\Common\Lexer\AbstractLexer
                 }
             }
         }
+
         return $type;
     }
 }

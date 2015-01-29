@@ -25,8 +25,10 @@ class String implements StringInterface
                 $color = Color::Contrast($color, $background);
                 $color = Color::Rgb24ToRgb12($color);
                 $color = Color::Rgb12ToString($color);
-                return $matches[1] . '$' . $color;
+
+                return $matches[1].'$'.$color;
             }, $this->string);
+
         return $this;
     }
 
@@ -40,28 +42,31 @@ class String implements StringInterface
         preg_match_all('/[\$\[\]]/iu', $codes, $escapedChars);
 
         if (count($linkCodes[0])) {
-            $this->string = (string)$this->doStripLinks(array_unique($linkCodes[0]));
+            $this->string = (string) $this->doStripLinks(array_unique($linkCodes[0]));
         }
         if (count($colorCodes[0])) {
-            $this->string = (string)$this->stripColors();
+            $this->string = (string) $this->stripColors();
         }
         $pattern = sprintf('/(?<!\$)((?:\$[\$\[\]])*)\$[%s]/iu', $codes);
         $this->string = preg_replace($pattern, '$1', $this->string);
         if (count($escapedChars[0])) {
-            $this->string = (string)$this->doStripEscapedChars(array_unique($escapedChars[0]));
+            $this->string = (string) $this->doStripEscapedChars(array_unique($escapedChars[0]));
         }
+
         return $this;
     }
 
     public function stripAll()
     {
         $this->string = preg_replace('/(?<!\$)((?:\$\$)*)\$[^$0-9a-fhlp\[\]]/iu', '$1', $this->string);
+
         return $this->stripEscapeCharacter()->stripLinks()->stripColors();
     }
 
     public function stripColors()
     {
         $this->string = preg_replace('/(?<!\$)((?:\$\$)*)\$(?:[0-9a-f][^\$]{0,2})/iu', '$1', $this->string);
+
         return $this;
     }
 
@@ -82,6 +87,7 @@ class String implements StringInterface
             implode('', $codes)
         );
         $this->string = preg_replace($pattern, '$1$2$3', $this->string);
+
         return $this;
     }
 
@@ -89,6 +95,7 @@ class String implements StringInterface
     {
         $pattern = sprintf('/\$([%s])/iu', addcslashes(implode('', $codes), '$[]'));
         $this->string = preg_replace($pattern, '$1', $this->string);
+
         return $this;
     }
 }

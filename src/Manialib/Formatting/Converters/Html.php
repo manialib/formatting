@@ -53,42 +53,34 @@ class Html extends AbstractConverter
 
     protected function color()
     {
-
     }
 
     protected function shadowed()
     {
-
     }
 
     protected function bold()
     {
-
     }
 
     protected function italic()
     {
-
     }
 
     protected function wide()
     {
-
     }
 
     protected function narrow()
     {
-
     }
 
     protected function medium()
     {
-
     }
 
     protected function upperCase()
     {
-
     }
 
     protected function resetAll()
@@ -98,12 +90,10 @@ class Html extends AbstractConverter
 
     protected function pushStyle()
     {
-
     }
 
     protected function popStyle()
     {
-
     }
 
     protected function openExternalLink($link)
@@ -137,6 +127,7 @@ class Html extends AbstractConverter
         if (substr($link, 0, strlen($protocol)) != $protocol) {
             $link = sprintf('maniaplanet:///:%s', $link);
         }
+
         return $link;
     }
 }
