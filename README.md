@@ -73,12 +73,6 @@ Will output:
 
 `php vendor/bin/phpunit`
 
-## Todo
-
-- Docblocks
-- Write more tests
-- Image converter
-
 ## Development guidelines
 
 We follow best practices from the amazing PHP ecosystem. Warm kudos to [Symfony](http://symfony.com/), [The PHP League](http://thephpleague.com/), [the PHP subreddit](http://www.reddit.com/r/PHP/) and many more for inspiration and challenging ideas.
