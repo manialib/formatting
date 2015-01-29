@@ -4,7 +4,7 @@ namespace Manialib\Formatting\Converters;
 
 use Manialib\Formatting\Color;
 
-class HTML extends AbstractConverter
+class Html extends AbstractConverter
 {
     protected $link = null;
 
@@ -20,7 +20,7 @@ class HTML extends AbstractConverter
                 $style .= 'letter-spacing:-.1em;font-size:95%;';
                 break;
             case 2:
-                $style.= 'letter-spacing:.1em;font-size:105%;';
+                $style .= 'letter-spacing:.1em;font-size:105%;';
                 break;
             case 1:
             default:
@@ -37,10 +37,10 @@ class HTML extends AbstractConverter
         if ($this->currentStyle->isUppercase()) {
             $style .= 'text-transform:uppercase;';
         }
-        if($style) {
+        if ($style) {
             $value = sprintf('<span style="%s">%s</span>', $style, $value);
         }
-        if($this->link) {
+        if ($this->link) {
             $value = sprintf('<a href="%s" style="color:inherit;">%s</a>', $this->link, $value);
         }
         $this->result .= $value;
@@ -53,42 +53,42 @@ class HTML extends AbstractConverter
 
     protected function color()
     {
-        
+
     }
 
     protected function shadowed()
     {
-        
+
     }
 
     protected function bold()
     {
-        
+
     }
 
     protected function italic()
     {
-        
+
     }
 
     protected function wide()
     {
-        
+
     }
 
     protected function narrow()
     {
-        
+
     }
 
     protected function medium()
     {
-        
+
     }
 
     protected function upperCase()
     {
-        
+
     }
 
     protected function resetAll()
@@ -103,7 +103,7 @@ class HTML extends AbstractConverter
 
     protected function popStyle()
     {
-        
+
     }
 
     protected function openExternalLink($link)
