@@ -8,13 +8,13 @@ abstract class Color
     const CONTRAST_AUTO    = 0;
     const CONTRAST_LIGHTER = 1;
 
-    public static function Contrast($colorRgb, $backgroundRgb, $contrast = self::CONTRAST_AUTO)
+    public static function contrast($colorRgb, $backgroundRgb, $contrast = self::CONTRAST_AUTO)
     {
-        $backgroundHsv = self::Rgb24ToHsv($backgroundRgb);
-        $colorHsv = self::Rgb24ToHsv($colorRgb);
+        $backgroundHsv = self::rgb24ToHsv($backgroundRgb);
+        $colorHsv = self::rgb24ToHsv($colorRgb);
         $threshold = ($colorHsv['hue'] == $backgroundHsv['hue']) ? .05 : .025;
 
-        if (self::Difference($colorRgb, $backgroundRgb) > 20) {
+        if (self::difference($colorRgb, $backgroundRgb) > 20) {
             return $colorRgb;
         }
         if ($contrast === self::CONTRAST_AUTO) {
@@ -50,10 +50,10 @@ abstract class Color
             $colorHsv['value'] = 1;
         }
 
-        return self::HsvToRgb24($colorHsv);
+        return self::hsvToRgb24($colorHsv);
     }
 
-    private static function Difference($rgb2, $rgb1)
+    private static function difference($rgb2, $rgb1)
     {
         $r = (($rgb2 & 0xff0000) >> 16) - (($rgb1 & 0xff0000) >> 16);
         $g = (($rgb2 & 0xff00) >> 8) - (($rgb1 & 0xff00) >> 8);
@@ -62,29 +62,29 @@ abstract class Color
         return sqrt($r*$r + $g*$g + $b*$b);
     }
 
-    public static function StringToRgb24($hex)
+    public static function stringToRgb24($hex)
     {
         $hex = trim($hex, '#$');
         if (strlen($hex) == 3) {
-            return self::Rgb12ToRgb24(hexdec($hex) & 0xfff);
+            return self::rgb12ToRgb24(hexdec($hex) & 0xfff);
         } else {
             return hexdec($hex) & 0xffffff;
         }
     }
 
-    public static function StringToRgb12($hex)
+    public static function stringToRgb12($hex)
     {
         $hex = trim($hex, '#$');
 
         return hexdec($hex) & 0xfff;
     }
 
-    public static function Rgb12ToRgb24($rgb)
+    public static function rgb12ToRgb24($rgb)
     {
         return ($rgb & 0xf00) * 0x1100 + ($rgb & 0xf0) * 0x110 + ($rgb & 0xf) * 0x11;
     }
 
-    public static function Rgb24ToRgb12($rgb)
+    public static function rgb24ToRgb12($rgb)
     {
         $r = (int) round((($rgb & 0xff0000) >> 16) / 17);
         $g = (int) round((($rgb & 0xff00) >> 8) / 17);
@@ -93,12 +93,12 @@ abstract class Color
         return ($r << 8) + ($g << 4) + $b;
     }
 
-    public static function Rgb12ToString($rgb)
+    public static function rgb12ToString($rgb)
     {
         return str_pad(dechex($rgb), 3, '0', STR_PAD_LEFT);
     }
 
-    public static function Rgb24ToString($rgb)
+    public static function rgb24ToString($rgb)
     {
         $hex = str_pad(dechex($rgb), 6, '0', STR_PAD_LEFT);
         if (preg_match('/(?:([0-9a-z])\g{-1}){3}/i', $hex)) {
@@ -108,7 +108,7 @@ abstract class Color
         }
     }
 
-    public static function Rgb24ToHsv($rgb)
+    public static function rgb24ToHsv($rgb)
     {
         $r = (($rgb & 0xff0000) >> 16) / 255;
         $g = (($rgb & 0xff00) >> 8) / 255;
@@ -133,7 +133,7 @@ abstract class Color
                 'value' => $max, );
     }
 
-    public static function HsvToRgb24($hsv)
+    public static function hsvToRgb24($hsv)
     {
         $hue = $hsv['hue'];
         $saturation = $hsv['saturation'];

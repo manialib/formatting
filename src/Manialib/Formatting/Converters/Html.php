@@ -12,8 +12,8 @@ class Html extends AbstractConverter
     {
         $style = '';
         if ($this->currentStyle->getColor()) {
-            $color = Color::StringToRgb24($this->currentStyle->getColor());
-            $style .= sprintf('color:#%s;', Color::Rgb24ToString($color));
+            $color = Color::stringToRgb24($this->currentStyle->getColor());
+            $style .= sprintf('color:#%s;', Color::rgb24ToString($color));
         }
         switch ($this->currentStyle->getWidth()) {
         case 0:
