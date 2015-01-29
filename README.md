@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/manialib/formatting.svg?style=flat-square)](https://travis-ci.org/manialib/formatting)
 [![Packagist Version](https://img.shields.io/packagist/v/manialib/formatting.svg?style=flat-square)](https://packagist.org/packages/manialib/formatting)
 [![Total Downloads](https://img.shields.io/packagist/dt/manialib/formatting.svg?style=flat-square)](https://packagist.org/packages/manialib/formatting)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/ba2ace96-021c-4d69-8c03-3eff608c8a88.svg)](https://insight.sensiolabs.com/projects/ba2ace96-021c-4d69-8c03-3eff608c8a88)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/ba2ace96-021c-4d69-8c03-3eff608c8a88.svg?style=flat-square)](https://insight.sensiolabs.com/projects/ba2ace96-021c-4d69-8c03-3eff608c8a88)
 
 A simple PHP component for manipulating styles in [Maniaplanet](http://manaplanet.com) strings. 
 
