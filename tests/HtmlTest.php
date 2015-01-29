@@ -1,7 +1,6 @@
 <?php
 
 use Manialib\Formatting\Converters\Html;
-use Manialib\Formatting\String;
 
 class HtmlTest extends PHPUnit_Framework_TestCase
 {
@@ -9,7 +8,10 @@ class HtmlTest extends PHPUnit_Framework_TestCase
     public function convertProvider()
     {
         return [
-            ['$cfeg$fff๐u1 $666ツ', '<span style="color:#cfe;">g</span><span style="color:#fff;">๐u1 </span><span style="color:#666;">ツ</span>'],
+            [
+                '$cfeg$fff๐u1 $666ツ',
+                '<span style="color:#cfe;">g</span><span style="color:#fff;">๐u1 </span><span style="color:#666;">ツ</span>'
+            ],
         ];
     }
 
