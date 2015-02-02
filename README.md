@@ -71,7 +71,7 @@ Will output:
 
 ## Run tests
 
-`php vendor/bin/phpunit`
+`php vendor/bin/phpunit` or `phpunit` if you installed it globally
 
 ## Development guidelines
 
