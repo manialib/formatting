@@ -55,12 +55,13 @@ g๐u1 ツ
 Convert a string to HTML:
 
 ```php
-use Manialib\Formatting\Converters\Html;
+use Manialib\Formatting\String;
+use Manialib\Formatting\Converter\Html;
 
-$nickname = '$cfeg$fff๐u1 $666ツ';
+$string = new String('$cfeg$fff๐u1 $666ツ');
+$converter = new Html();
 
-$converter = new Html($nickname);
-echo $converter->getResult();
+echo $string->convert($converter);
 ```
 
 Will output:

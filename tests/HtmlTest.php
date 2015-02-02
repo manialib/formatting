@@ -1,6 +1,7 @@
 <?php
 
-use Manialib\Formatting\Converters\Html;
+use Manialib\Formatting\Converter\Html;
+use Manialib\Formatting\String;
 
 class HtmlTest extends PHPUnit_Framework_TestCase
 {
@@ -20,7 +21,19 @@ class HtmlTest extends PHPUnit_Framework_TestCase
      */
     public function testConvert($input, $expected)
     {
-        $this->assertEquals($expected, (new Html($input))->getResult());
+        $this->assertEquals($expected, (new String($input))->convert(new Html()));
     }
+
+    /**
+     * @dataProvider convertProvider
+     */
+    public function testReuseConverter($input, $expected)
+    {
+
+        $converter = new Html();
+        $this->assertEquals((new String($input))->convert($converter), (new String($input))->convert($converter));
+    }
+
+
 
 }

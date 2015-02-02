@@ -40,6 +40,12 @@ interface StringInterface
     public function contrastColors($backgroundColor);
 
     /**
+     * @param ConverterInterface $converter
+     * @return mixed
+     */
+    public function convert(ConverterInterface $converter);
+
+    /**
      * @return string
      */
     public function __toString();
