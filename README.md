@@ -7,15 +7,16 @@
 
 PHP component for manipulating styles in [Maniaplanet](http://maniaplanet.com) strings. 
 
-## Work in progress
+## Beta
 
-This is a work in progress. Don't except stability, backwards compatibility, or anything like. If this is a problem for 
-your, feel free to open an issue and we'll try to help.
+This is a work in progress. As long as we don't release a stable version, we might break stuff at any point. If this is a problem, feel free to open an issue and we'll try to help.
 
 ## Features
 
 - Strip styles from strings: links, colors, etc.
 - Convert strings to other formats: HTML for now
+
+Find out more in the [change log](CHANGELOG.md).
 
 ## Requirements
 
@@ -73,9 +74,11 @@ Will output:
 
 Everything you need for using this should be documented in [`Manialib/Formatting/StringInterface`](src/Manialib/Formatting/StringInterface.php).
 
-## Run tests
+## Tests
 
 `$ php vendor/bin/phpunit`
+
+`$ php vendor/bin/phpcs --standard=PSR2 src`
 
 ## Development guidelines
 
