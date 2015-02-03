@@ -34,7 +34,7 @@ interface StringInterface
     /**
      * @return static
      */
-    public function stripEscapeCharacter();
+    public function stripEscapeCharacters();
 
     /**
      * @param  string $backgroundColor
