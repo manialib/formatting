@@ -42,8 +42,9 @@ abstract class Parser implements ConverterInterface
     public function setInput(StringInterface $string)
     {
         $this->result = null;
-        $this->lexer->setInput((string)$string);
+        $this->lexer->setInput((string) $string);
         $this->currentStyle = new Style();
+
         return $this;
     }
 

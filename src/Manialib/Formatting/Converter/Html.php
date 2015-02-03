@@ -17,14 +17,14 @@ class Html extends Parser
             $style .= sprintf('color:#%s;', Color::rgb24ToString($color));
         }
         switch ($this->currentStyle->getWidth()) {
-        case 0:
-            $style .= 'letter-spacing:-.1em;font-size:95%;';
-            break;
-        case 2:
-            $style .= 'letter-spacing:.1em;font-size:105%;';
-            break;
-        case 1:
-        default:
+            case 0:
+                $style .= 'letter-spacing:-.1em;font-size:95%;';
+                break;
+            case 2:
+                $style .= 'letter-spacing:.1em;font-size:105%;';
+                break;
+            case 1:
+            default:
         }
         if ($this->currentStyle->isBold()) {
             $style .= 'font-weight:bold;';
