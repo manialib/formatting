@@ -5,7 +5,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/manialib/formatting.svg?style=flat-square)](https://packagist.org/packages/manialib/formatting)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/ba2ace96-021c-4d69-8c03-3eff608c8a88.svg?style=flat-square)](https://insight.sensiolabs.com/projects/ba2ace96-021c-4d69-8c03-3eff608c8a88)
 
-A simple PHP component for manipulating styles in [Maniaplanet](http://maniaplanet.com) strings. 
+PHP component for manipulating styles in [Maniaplanet](http://maniaplanet.com) strings. 
 
 ## Work in progress
 
@@ -15,7 +15,7 @@ your, feel free to open an issue and we'll try to help.
 ## Features
 
 - Strip styles from strings: links, colors, etc.
-- Convert strings to other formats: HTML converter provided.
+- Convert strings to other formats: HTML for now
 
 ## Requirements
 
@@ -36,6 +36,8 @@ your, feel free to open an issue and we'll try to help.
 ## Usage
 
 Modify styles of a sring:
+
+> Note the String fluent interface which allows to chain methods calls
 
 ```php
 use Manialib\Formatting\String;
@@ -59,9 +61,8 @@ use Manialib\Formatting\String;
 use Manialib\Formatting\Converter\Html;
 
 $string = new String('$cfeg$fff๐u1 $666ツ');
-$converter = new Html();
 
-echo $string->convert($converter);
+echo $string->toHtml();
 ```
 
 Will output:

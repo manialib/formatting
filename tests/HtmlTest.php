@@ -21,7 +21,7 @@ class HtmlTest extends PHPUnit_Framework_TestCase
      */
     public function testConvert($input, $expected)
     {
-        $this->assertEquals($expected, (new String($input))->convert(new Html()));
+        $this->assertEquals($expected, (new String($input))->toHtml());
     }
 
     /**
@@ -31,9 +31,9 @@ class HtmlTest extends PHPUnit_Framework_TestCase
     {
 
         $converter = new Html();
-        $this->assertEquals((new String($input))->convert($converter), (new String($input))->convert($converter));
+        $this->assertEquals(
+            $converter->setInput(new String($input))->getOutput(),
+            $converter->setInput(new String($input))->getOutput());
     }
-
-
 
 }

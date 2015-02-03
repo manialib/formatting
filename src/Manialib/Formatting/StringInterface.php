@@ -2,6 +2,9 @@
 
 namespace Manialib\Formatting;
 
+/**
+ * @api
+ */
 interface StringInterface
 {
     public function __construct($string);
@@ -40,10 +43,9 @@ interface StringInterface
     public function contrastColors($backgroundColor);
 
     /**
-     * @param ConverterInterface $converter
-     * @return mixed
+     * @return string
      */
-    public function convert(ConverterInterface $converter);
+    public function toHtml();
 
     /**
      * @return string

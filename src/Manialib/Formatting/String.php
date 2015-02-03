@@ -2,6 +2,11 @@
 
 namespace Manialib\Formatting;
 
+use Manialib\Formatting\Converter\Html;
+
+/**
+ * @api
+ */
 class String implements StringInterface
 {
     protected $string;
@@ -82,9 +87,9 @@ class String implements StringInterface
         return $this->doStripEscapedChars();
     }
 
-    public function convert(ConverterInterface $converter)
+    public function toHtml()
     {
-        return $converter->setInput($this)->getOutput();
+        return (new Html())->setInput($this)->getOutput();
     }
 
     protected function doStripLinks(array $codes = array('h', 'l', 'p'))
