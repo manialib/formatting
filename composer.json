@@ -1,7 +1,7 @@
 {
     "name": "manialib/formatting",
     "type": "library",
-    "description": "A simple PHP component for manipulating styles in Maniaplanet strings.",
+    "description": "Manipulate styles in Maniaplanet strings.",
     "keywords": [
         "Ubisoft",
         "Nadeo",
