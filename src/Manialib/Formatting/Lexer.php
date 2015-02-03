@@ -58,56 +58,56 @@ class Lexer extends \Doctrine\Common\Lexer\AbstractLexer
                 }
             } else {
                 switch ($style) {
-                case '$':
-                    // no break
-                case '[':
-                    // no break
-                case ']':
-                    $type = static::T_ESCAPED_CHAR;
-                    break;
-                case 'g':
-                    $type = static::T_NO_COLOR;
-                    break;
-                case 's':
-                    $type = static::T_SHADOWED;
-                    break;
-                case 'b':
-                    $type = static::T_BOLD;
-                    break;
-                case 'i':
-                    $type = static::T_ITALIC;
-                    break;
-                case 'w':
-                    $type = static::T_WIDE;
-                    break;
-                case 'n':
-                    $type = static::T_NARROW;
-                    break;
-                case 'm':
-                    $type = static::T_MEDIUM;
-                    break;
-                case 't':
-                    $type = static::T_UPPERCASE;
-                    break;
-                case 'z':
-                    $type = static::T_RESET_ALL;
-                    break;
-                case '<':
-                    $type = static::T_PUSH;
-                    break;
-                case '>':
-                    $type = static::T_POP;
-                    break;
-                case 'h':
-                    //nobreak
-                case 'p':
-                    $type = static::T_INTERNAL_LINK;
-                    break;
-                case 'l':
-                    $type = static::T_EXTERNAL_LINK;
-                    break;
-                default:
-                    $type = static::T_UNKNOWN_MARKUP;
+                    case '$':
+                        // no break
+                    case '[':
+                        // no break
+                    case ']':
+                        $type = static::T_ESCAPED_CHAR;
+                        break;
+                    case 'g':
+                        $type = static::T_NO_COLOR;
+                        break;
+                    case 's':
+                        $type = static::T_SHADOWED;
+                        break;
+                    case 'b':
+                        $type = static::T_BOLD;
+                        break;
+                    case 'i':
+                        $type = static::T_ITALIC;
+                        break;
+                    case 'w':
+                        $type = static::T_WIDE;
+                        break;
+                    case 'n':
+                        $type = static::T_NARROW;
+                        break;
+                    case 'm':
+                        $type = static::T_MEDIUM;
+                        break;
+                    case 't':
+                        $type = static::T_UPPERCASE;
+                        break;
+                    case 'z':
+                        $type = static::T_RESET_ALL;
+                        break;
+                    case '<':
+                        $type = static::T_PUSH;
+                        break;
+                    case '>':
+                        $type = static::T_POP;
+                        break;
+                    case 'h':
+                        //nobreak
+                    case 'p':
+                        $type = static::T_INTERNAL_LINK;
+                        break;
+                    case 'l':
+                        $type = static::T_EXTERNAL_LINK;
+                        break;
+                    default:
+                        $type = static::T_UNKNOWN_MARKUP;
                 }
             }
         }

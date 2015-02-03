@@ -2,6 +2,9 @@
 
 namespace Manialib\Formatting;
 
+/**
+ * @api
+ */
 interface StringInterface
 {
     public function __construct($string);
@@ -31,13 +34,18 @@ interface StringInterface
     /**
      * @return static
      */
-    public function stripEscapeCharacter();
+    public function stripEscapeCharacters();
 
     /**
      * @param  string $backgroundColor
      * @return static
      */
     public function contrastColors($backgroundColor);
+
+    /**
+     * @return string
+     */
+    public function toHtml();
 
     /**
      * @return string

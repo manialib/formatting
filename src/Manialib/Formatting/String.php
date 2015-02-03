@@ -2,6 +2,11 @@
 
 namespace Manialib\Formatting;
 
+use Manialib\Formatting\Converter\Html;
+
+/**
+ * @api
+ */
 class String implements StringInterface
 {
     protected $string;
@@ -28,7 +33,8 @@ class String implements StringInterface
                 $color = Color::rgb12ToString($color);
 
                 return $matches[1].'$'.$color;
-            }, $this->string
+            },
+            $this->string
         );
 
         return $this;
@@ -52,7 +58,7 @@ class String implements StringInterface
         $pattern = sprintf('/(?<!\$)((?:\$[\$\[\]])*)\$[%s]/iu', $codes);
         $this->string = preg_replace($pattern, '$1', $this->string);
         if (count($escapedChars[0])) {
-            $this->string = (string) $this->doStripEscapedChars(array_unique($escapedChars[0]));
+            $this->string = (string) $this->doStripEscapedCharacters(array_unique($escapedChars[0]));
         }
 
         return $this;
@@ -62,7 +68,7 @@ class String implements StringInterface
     {
         $this->string = preg_replace('/(?<!\$)((?:\$\$)*)\$[^$0-9a-fhlp\[\]]/iu', '$1', $this->string);
 
-        return $this->stripEscapeCharacter()->stripLinks()->stripColors();
+        return $this->stripEscapeCharacters()->stripLinks()->stripColors();
     }
 
     public function stripColors()
@@ -77,9 +83,14 @@ class String implements StringInterface
         return $this->doStripLinks();
     }
 
-    public function stripEscapeCharacter()
+    public function stripEscapeCharacters()
     {
-        return $this->doStripEscapedChars();
+        return $this->doStripEscapedCharacters();
+    }
+
+    public function toHtml()
+    {
+        return (new Html())->setInput($this)->getOutput();
     }
 
     protected function doStripLinks(array $codes = array('h', 'l', 'p'))
@@ -93,7 +104,7 @@ class String implements StringInterface
         return $this;
     }
 
-    protected function doStripEscapedChars(array $codes = array('$', '[', ']'))
+    protected function doStripEscapedCharacters(array $codes = array('$', '[', ']'))
     {
         $pattern = sprintf('/\$([%s])/iu', addcslashes(implode('', $codes), '$[]'));
         $this->string = preg_replace($pattern, '$1', $this->string);

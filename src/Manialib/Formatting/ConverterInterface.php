@@ -5,7 +5,10 @@ namespace Manialib\Formatting;
 interface ConverterInterface
 {
 
-    public function __construct($string);
+    /**
+     * @return static
+     */
+    public function setInput(StringInterface $string);
 
-    public function getResult();
+    public function getOutput();
 }
