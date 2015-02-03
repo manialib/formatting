@@ -47,7 +47,7 @@ use Manialib\Formatting\String;
 
 $nickname = '$l[https://github.com/manialib/formatting]$cfeg$fff๐u1 $666ツ$l';
 
-$string = new String($originalString);
+$string = new String($nickname);
 echo $string->stripColors()->stripLinks();
 ```
 
