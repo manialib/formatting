@@ -75,7 +75,7 @@ Everything you need for using this should be documented in [`Manialib/Formatting
 
 ## Run tests
 
-`php vendor/bin/phpunit` or `phpunit` if you installed it globally
+`$ php vendor/bin/phpunit`
 
 ## Development guidelines
 
