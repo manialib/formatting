@@ -40,7 +40,7 @@ Find out more in the [change log](CHANGELOG.md).
 
 Modify styles of a sring:
 
-> Note the String fluent interface which allows to chain methods calls
+> Note the String fluent interface which allows to chain method calls
 
 ```php
 use Manialib\Formatting\String;
@@ -60,8 +60,7 @@ g๐u1 ツ
 Convert a string to HTML:
 
 ```php
-use Manialib\Formatting\String;
-use Manialib\Formatting\Converter\Html;
+use Manialib\Formatting\String;;
 
 $string = new String('$cfeg$fff๐u1 $666ツ');
 
