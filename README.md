@@ -71,6 +71,8 @@ Will output:
 <span style="color:#cfe;">g</span><span style="color:#fff;">๐u1 </span><span style="color:#666;">ツ</span>
 ```
 
+Everything you need for using this should be documented in [`Manialib/Formatting/StringInterface`](src/Manialib/Formatting/StringInterface.php).
+
 ## Run tests
 
 `php vendor/bin/phpunit` or `phpunit` if you installed it globally
