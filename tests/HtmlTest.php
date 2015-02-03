@@ -13,6 +13,7 @@ class HtmlTest extends PHPUnit_Framework_TestCase
                 '$cfeg$fff๐u1 $666ツ',
                 '<span style="color:#cfe;">g</span><span style="color:#fff;">๐u1 </span><span style="color:#666;">ツ</span>'
             ],
+            ['a$>b', 'ab']
         ];
     }
 
@@ -34,6 +35,21 @@ class HtmlTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(
             $converter->setInput(new String($input))->getOutput(),
             $converter->setInput(new String($input))->getOutput());
+    }
+
+    public function nicknamesProvider()
+    {
+        return [
+            ['']
+        ];
+    }
+
+    /**
+     * @dataProvider nicknamesProvider
+     */
+    public function testNoErrors($input)
+    {
+        (new String($input))->toHtml();
     }
 
 }
