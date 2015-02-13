@@ -1,15 +1,15 @@
 # Manialib\Formatting
 
+Manialib\Formatting is a PHP package for manipulating styles in Maniaplanet strings. 
+
+Learn more about Maniaplanet formatting characters on the [wiki](http://wiki.maniaplanet.com/en/Profile#Nickname_customization).
+
+## Beta
+
 [![Build Status](https://img.shields.io/travis/manialib/formatting.svg?style=flat-square)](https://travis-ci.org/manialib/formatting)
 [![Packagist Version](https://img.shields.io/packagist/v/manialib/formatting.svg?style=flat-square)](https://packagist.org/packages/manialib/formatting)
 [![Total Downloads](https://img.shields.io/packagist/dt/manialib/formatting.svg?style=flat-square)](https://packagist.org/packages/manialib/formatting)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/ba2ace96-021c-4d69-8c03-3eff608c8a88.svg?style=flat-square)](https://insight.sensiolabs.com/projects/ba2ace96-021c-4d69-8c03-3eff608c8a88)
-
-Manipulate styles in [Maniaplanet](http://maniaplanet.com) strings. 
-
-Learn more about Maniaplanet string styles on the [wiki](http://wiki.maniaplanet.com/en/Profile#Nickname_customization).
-
-## Beta
 
 This is a work in progress. As long as we don't release a stable version, we might break stuff at any point. If this is a problem, feel free to open an issue and we'll try to help.
 
