@@ -1,7 +1,7 @@
 <?php
 
 use Manialib\Formatting\Converter\Html;
-use Manialib\Formatting\String;
+use Manialib\Formatting\ManialanetString;
 
 class HtmlTest extends PHPUnit_Framework_TestCase
 {
@@ -22,7 +22,7 @@ class HtmlTest extends PHPUnit_Framework_TestCase
      */
     public function testConvert($input, $expected)
     {
-        $this->assertEquals($expected, (new String($input))->toHtml());
+        $this->assertEquals($expected, (new ManialanetString($input))->toHtml());
     }
 
     /**
@@ -33,8 +33,8 @@ class HtmlTest extends PHPUnit_Framework_TestCase
 
         $converter = new Html();
         $this->assertEquals(
-            $converter->setInput(new String($input))->getOutput(),
-            $converter->setInput(new String($input))->getOutput());
+            $converter->setInput(new ManialanetString($input))->getOutput(),
+            $converter->setInput(new ManialanetString($input))->getOutput());
     }
 
     public function nicknamesProvider()
@@ -49,7 +49,7 @@ class HtmlTest extends PHPUnit_Framework_TestCase
      */
     public function testNoErrors($input)
     {
-        (new String($input))->toHtml();
+        (new ManialanetString($input))->toHtml();
     }
 
 }

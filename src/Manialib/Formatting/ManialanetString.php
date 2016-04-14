@@ -7,7 +7,7 @@ use Manialib\Formatting\Converter\Html;
 /**
  * @api
  */
-class String implements StringInterface
+class ManialanetString implements StringInterface
 {
     protected $string;
 

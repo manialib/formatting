@@ -38,16 +38,16 @@ Find out more in the [change log](CHANGELOG.md).
 
 ## Usage
 
-Modify styles of a sring:
+Modify styles of a string:
 
 > Note the String fluent interface which allows to chain method calls
 
 ```php
-use Manialib\Formatting\String;
+use Manialib\Formatting\ManialanetString;
 
 $nickname = '$l[https://github.com/manialib/formatting]$cfeg$fff๐u1 $666ツ$l';
 
-$string = new String($nickname);
+$string = new ManialanetString($nickname);
 echo $string->stripColors()->stripLinks();
 ```
 
@@ -60,9 +60,9 @@ g๐u1 ツ
 Convert a string to HTML:
 
 ```php
-use Manialib\Formatting\String;;
+use Manialib\Formatting\ManialanetString;;
 
-$string = new String('$cfeg$fff๐u1 $666ツ');
+$string = new ManialanetString('$cfeg$fff๐u1 $666ツ');
 
 echo $string->toHtml();
 ```
