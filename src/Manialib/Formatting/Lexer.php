@@ -71,7 +71,7 @@ class Lexer extends \Doctrine\Common\Lexer\AbstractLexer
                     case 's':
                         $type = static::T_SHADOWED;
                         break;
-                    case 'b':
+                    case 'o':
                         $type = static::T_BOLD;
                         break;
                     case 'i':
