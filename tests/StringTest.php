@@ -1,6 +1,6 @@
 <?php
 
-use Manialib\Formatting\ManialanetString;
+use Manialib\Formatting\ManiaplanetString;
 
 class StringTest extends PHPUnit_Framework_TestCase
 {
@@ -17,7 +17,7 @@ class StringTest extends PHPUnit_Framework_TestCase
      */
     public function testStripAll($input, $expected)
     {
-        $this->assertEquals($expected, (new ManialanetString($input))->stripAll());
+        $this->assertEquals($expected, (new ManiaplanetString($input))->stripAll());
     }
 
     public function stripLinksProvider()
@@ -35,7 +35,7 @@ class StringTest extends PHPUnit_Framework_TestCase
      */
     public function testStripLinks($input, $expected)
     {
-        $this->assertEquals($expected, (new ManialanetString($input))->stripLinks());
+        $this->assertEquals($expected, (new ManiaplanetString($input))->stripLinks());
     }
 
 
