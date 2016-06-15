@@ -126,6 +126,7 @@ abstract class Parser implements ConverterInterface
                     break;
                 case Lexer::T_PUSH:
                     array_push($this->stylesStack, $this->currentStyle);
+                    $this->currentStyle = clone $this->currentStyle;
                     $this->pushStyle();
                     break;
                 case Lexer::T_POP:
