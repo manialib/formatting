@@ -20,6 +20,22 @@ class HtmlTest extends PHPUnit_Framework_TestCase
             [
                 'foo$<$f20foo$>bar',
                 'foo<span style="color:#f20;">foo</span>bar'
+            ],
+            [
+                'foo$<$f20bar',
+                'foo<span style="color:#f20;">bar</span>'
+            ],
+            [
+                '$l[http://maniaplanet.com]trackmania.com$l',
+                '<a href="http://maniaplanet.com" style="color:inherit;">trackmania.com</a>'
+            ],
+            [
+                '$lhttp://maniaplanet.com$l',
+                '<a href="http://maniaplanet.com" style="color:inherit;">http://maniaplanet.com</a>'
+            ],
+            [
+                '$l[www.clan-nuitblanche.org]$fff$l',
+                ''
             ]
         ];
     }
