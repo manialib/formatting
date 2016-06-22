@@ -62,6 +62,10 @@ abstract class Color
         return sqrt($r*$r + $g*$g + $b*$b);
     }
 
+    /**
+     * @param $hex string
+     * @return int
+     */
     public static function stringToRgb24($hex)
     {
         $hex = trim($hex, '#$');
@@ -72,6 +76,10 @@ abstract class Color
         }
     }
 
+    /**
+     * @param $hex string
+     * @return int
+     */
     public static function stringToRgb12($hex)
     {
         $hex = trim($hex, '#$');
@@ -79,11 +87,19 @@ abstract class Color
         return hexdec($hex) & 0xfff;
     }
 
+    /**
+     * @param $rgb int
+     * @return int
+     */
     public static function rgb12ToRgb24($rgb)
     {
         return ($rgb & 0xf00) * 0x1100 + ($rgb & 0xf0) * 0x110 + ($rgb & 0xf) * 0x11;
     }
 
+    /**
+     * @param $rgb int
+     * @return int
+     */
     public static function rgb24ToRgb12($rgb)
     {
         $r = (int) round((($rgb & 0xff0000) >> 16) / 17);
@@ -93,6 +109,10 @@ abstract class Color
         return ($r << 8) + ($g << 4) + $b;
     }
 
+    /**
+     * @param $rgb int
+     * @return string
+     */
     public static function rgb12ToString($rgb)
     {
         return str_pad(dechex($rgb), 3, '0', STR_PAD_LEFT);
