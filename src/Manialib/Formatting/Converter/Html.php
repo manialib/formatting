@@ -42,7 +42,12 @@ class Html extends Parser
             $value = sprintf('<span style="%s">%s</span>', $style, $value);
         }
         if ($this->link) {
-            $value = sprintf('<a href="%s" style="color:inherit;">%s</a>', $this->link, $value);
+            if (preg_match('/^[[:alnum:].+-]+:\/\//', $this->link)) {
+                $link = $this->link;
+            } else {
+                $link = 'http://' . $this->link;
+            }
+            $value = sprintf('<a href="%s" style="color:inherit;">%s</a>', $link, $value);
         }
         $this->result .= $value;
     }
