@@ -42,7 +42,7 @@ class Html extends Parser
             $value = sprintf('<span style="%s">%s</span>', $style, $value);
         }
         if ($this->link) {
-            if (preg_match('/^[[:alnum:].+-]+:\/\//', $this->link)) {
+            if (parse_url($this->link, PHP_URL_SCHEME) !== null) {
                 $link = $this->link;
             } else {
                 $link = 'http://' . $this->link;
