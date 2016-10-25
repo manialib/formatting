@@ -18,7 +18,7 @@ class ManiaplanetString implements StringInterface
 
     public function __toString()
     {
-        return $this->string;
+        return (string) $this->string;
     }
 
     public function contrastColors($backgroundColor)

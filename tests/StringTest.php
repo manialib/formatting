@@ -4,6 +4,22 @@ use Manialib\Formatting\ManiaplanetString;
 
 class StringTest extends PHPUnit_Framework_TestCase
 {
+    /**
+     * @dataProvider toStringProvider
+     */
+    public function testToString($input, $expected)
+    {
+        $string = new ManiaplanetString($input);
+        $this->assertSame($expected, $string->__toString());
+    }
+
+    public function toStringProvider()
+    {
+        return [
+            ['test', 'test'],
+            [null, '']
+        ];
+    }
 
     public function stripAllProvider()
     {
