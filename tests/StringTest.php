@@ -9,6 +9,7 @@ class StringTest extends PHPUnit_Framework_TestCase
     {
         return [
             ['$cfeg$fff๐u1 $666ツ', 'g๐u1 ツ'],
+            ['$u$l[http://google.fr]google$l', 'google']
         ];
     }
 

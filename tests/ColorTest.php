@@ -22,6 +22,10 @@ class ColorTest extends PHPUnit_Framework_TestCase
             [
                 'CC0000',
                 'c00'
+            ],
+            [
+                'EDD400',
+                'ec0'
             ]
         ];
     }
