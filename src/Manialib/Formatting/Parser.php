@@ -67,7 +67,7 @@ abstract class Parser implements ConverterInterface
             $value = $this->lexer->lookahead['value'];
             switch ($this->lexer->lookahead['type']) {
                 case Lexer::T_NONE:
-                    $this->none($value);
+                    $this->none(htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'));
                     break;
                 case Lexer::T_ESCAPED_CHAR:
                     $this->escapedCharacter($value);
