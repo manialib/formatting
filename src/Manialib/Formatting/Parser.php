@@ -12,7 +12,7 @@ abstract class Parser implements ConverterInterface
     /**
      * @var array
      */
-    protected $stylesStack = array();
+    protected $stylesStack;
 
     /**
      * @var Style
@@ -22,30 +22,39 @@ abstract class Parser implements ConverterInterface
     /**
      * @var bool
      */
-    protected $isInLink = false;
+    protected $isInLink;
 
     /**
      * @var string
      */
-    protected $result = '';
+    protected $result;
 
     /**
      * @var array
      */
-    protected $lookaheadToSkip = array();
+    protected $lookaheadToSkip;
 
     public function __construct()
     {
         $this->lexer = new Lexer();
+        $this->init();
     }
 
     public function setInput(StringInterface $string)
     {
-        $this->result = null;
+        $this->init();
         $this->lexer->setInput((string) $string);
-        $this->currentStyle = new Style();
 
         return $this;
+    }
+
+    private function init()
+    {
+        $this->stylesStack = [];
+        $this->currentStyle = new Style();
+        $this->isInLink = false;
+        $this->result = '';
+        $this->lookaheadToSkip = [];
     }
 
     public function getOutput()
@@ -157,6 +166,9 @@ abstract class Parser implements ConverterInterface
                     // We do nothing with unknown markup for the moment
                     break;
             }
+        }
+        if ($this->isInLink) {
+            $this->closeInternalLink();
         }
     }
 

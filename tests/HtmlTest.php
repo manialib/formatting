@@ -40,6 +40,10 @@ class HtmlTest extends PHPUnit_Framework_TestCase
             [
                 '$l[http://maniaplanet.com]foo$obar$l',
                 '<a href="http://maniaplanet.com" style="color:inherit;">foo<span style="font-weight:bold;">bar</span></a>'
+            ],
+            [
+                '$l[http://google.fr]google',
+                '<a href="http://google.fr" style="color:inherit;">google</a>'
             ]
         ];
     }
