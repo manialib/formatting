@@ -35,7 +35,7 @@ class HtmlTest extends PHPUnit_Framework_TestCase
             ],
             [
                 '$l[www.clan-nuitblanche.org]$fff$l',
-                ''
+                '<a href="www.clan-nuitblanche.org" style="color:inherit;"></a>'
             ],
             [
                 '$l[http://maniaplanet.com]foo$obar$l',

@@ -41,14 +41,6 @@ class Html extends Parser
         if ($style) {
             $value = sprintf('<span style="%s">%s</span>', $style, $value);
         }
-        if ($this->link) {
-            if (parse_url($this->link, PHP_URL_SCHEME) !== null) {
-                $link = $this->link;
-            } else {
-                $link = 'http://' . $this->link;
-            }
-            $value = sprintf('<a href="%s" style="color:inherit;">%s</a>', $link, $value);
-        }
         $this->result .= $value;
     }
 
@@ -104,7 +96,7 @@ class Html extends Parser
 
     protected function openExternalLink($link)
     {
-        $this->link = $link;
+        $this->openLink($link);
     }
 
     protected function closeExternalLink()
@@ -114,7 +106,16 @@ class Html extends Parser
 
     protected function openInternalLink($link)
     {
-        $this->link = $this->secureInternalLink($link);
+        $protocol = 'maniaplanet://';
+        if (substr($link, 0, strlen($protocol)) != $protocol) {
+            $link = sprintf('maniaplanet:///:%s', $link);
+        }
+        $this->openLink($link);
+    }
+
+    private function openLink($link)
+    {
+        $this->result .= sprintf('<a href="%s" style="color:inherit;">', $link);
     }
 
     protected function closeInternalLink()
@@ -124,16 +125,11 @@ class Html extends Parser
 
     protected function closeLink()
     {
-        $this->link = null;
+        $this->result .= '</a>';
     }
 
     protected function secureInternalLink($link)
     {
-        $protocol = 'maniaplanet://';
-        if (substr($link, 0, strlen($protocol)) != $protocol) {
-            $link = sprintf('maniaplanet:///:%s', $link);
-        }
-
         return $link;
     }
 }
