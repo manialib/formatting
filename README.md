@@ -31,7 +31,7 @@ Find out more in the [change log](CHANGELOG.md).
 ```json
 {
 	"require": {
-        "manialib/formatting": "4.0.0-beta2"
+        "manialib/formatting": "^4.0"
     }
 }
 ```
