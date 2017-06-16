@@ -44,6 +44,10 @@ class HtmlTest extends PHPUnit_Framework_TestCase
             [
                 '$l[http://google.fr]google',
                 '<a href="http://google.fr" style="color:inherit;">google</a>'
+            ],
+            [
+                'foo$zbar',
+                'foobar'
             ]
         ];
     }

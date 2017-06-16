@@ -130,8 +130,10 @@ abstract class Parser implements ConverterInterface
                         $style = new Style();
                     }
                     $this->currentStyle = $style;
+                    if ($this->isInLink) {
+                        $this->closeExternalLink();
+                    }
                     $this->isInLink = false;
-                    $this->resetAll();
                     break;
                 case Lexer::T_PUSH:
                     array_push($this->stylesStack, $this->currentStyle);
