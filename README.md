@@ -43,11 +43,11 @@ Modify styles of a string:
 > Note the String fluent interface which allows to chain method calls
 
 ```php
-use Manialib\Formatting\ManialanetString;
+use Manialib\Formatting\ManiaplanetString;
 
 $nickname = '$l[https://github.com/manialib/formatting]$cfeg$fff๐u1 $666ツ$l';
 
-$string = new ManialanetString($nickname);
+$string = new ManiaplanetString($nickname);
 echo $string->stripColors()->stripLinks();
 ```
 
@@ -60,9 +60,9 @@ g๐u1 ツ
 Convert a string to HTML:
 
 ```php
-use Manialib\Formatting\ManialanetString;;
+use Manialib\Formatting\ManiaplanetString;;
 
-$string = new ManialanetString('$cfeg$fff๐u1 $666ツ');
+$string = new ManiaplanetString('$cfeg$fff๐u1 $666ツ');
 
 echo $string->toHtml();
 ```
