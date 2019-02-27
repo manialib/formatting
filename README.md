@@ -2,7 +2,7 @@
 
 Manialib\Formatting is a PHP package for manipulating styles in Maniaplanet strings. 
 
-Learn more about Maniaplanet formatting characters on the [wiki](http://wiki.maniaplanet.com/en/Profile#Nickname_customization).
+Learn more about Maniaplanet formatting characters on the [wiki](https://doc.maniaplanet.com/client/text-formatting).
 
 ## Beta
 
