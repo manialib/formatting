@@ -60,7 +60,7 @@ g๐u1 ツ
 Convert a string to HTML:
 
 ```php
-use Manialib\Formatting\ManiaplanetString;;
+use Manialib\Formatting\ManiaplanetString;
 
 $string = new ManiaplanetString('$cfeg$fff๐u1 $666ツ');
 
