@@ -39,7 +39,9 @@ class Html extends Parser
             $style .= 'text-transform:uppercase;';
         }
         if ($style) {
-            $value = sprintf('<span style="%s">%s</span>', $style, $value);
+            $value = sprintf('<span style="%s">%s</span>', $style, htmlspecialchars($value));
+        } else {
+            $value = htmlspecialchars($value);
         }
         $this->result .= $value;
     }
@@ -115,7 +117,15 @@ class Html extends Parser
 
     private function openLink($link)
     {
-        $this->result .= sprintf('<a href="%s" style="color:inherit;">', $link);
+        $scheme = parse_url($link, PHP_URL_SCHEME);
+        if ($scheme === null) {
+            $scheme = 'http';
+            $link = 'http://'.$link;
+        }
+        if (!in_array($scheme, ['http', 'https', 'maniaplanet'])) {
+            $link = '#';
+        }
+        $this->result .= sprintf('<a href="%s" style="color:inherit;">', htmlspecialchars($link));
     }
 
     protected function closeInternalLink()
