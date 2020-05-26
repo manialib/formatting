@@ -1,8 +1,9 @@
 <?php
 
 use Manialib\Formatting\ManiaplanetString;
+use PHPUnit\Framework\TestCase;
 
-class StringTest extends PHPUnit_Framework_TestCase
+class StringTest extends TestCase
 {
     /**
      * @dataProvider toStringProvider
