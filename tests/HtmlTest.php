@@ -36,7 +36,7 @@ class HtmlTest extends TestCase
             ],
             [
                 '$l[www.clan-nuitblanche.org]$fff$l',
-                '<a href="www.clan-nuitblanche.org" style="color:inherit;"></a>'
+                '<a href="http://www.clan-nuitblanche.org" style="color:inherit;"></a>'
             ],
             [
                 '$l[http://maniaplanet.com]foo$obar$l',
@@ -45,6 +45,22 @@ class HtmlTest extends TestCase
             [
                 '$l[http://google.fr]google',
                 '<a href="http://google.fr" style="color:inherit;">google</a>'
+            ],
+            [
+                '$l[javascript:alert(1)]ahoy$l',
+                '<a href="#" style="color:inherit;">ahoy</a>'
+            ],
+            [
+                '$l["><script>alert(1)</script>]xss',
+                '<a href="http://&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;" style="color:inherit;">xss</a>'
+            ],
+            [
+                '$l[http://example.org"><script>alert(1)</script>]xss2',
+                '<a href="http://example.org&quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;" style="color:inherit;">xss2</a>'
+            ],
+            [
+                '<script>alert(1)</script>',
+                '&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;',
             ],
             [
                 'foo$zbar',
