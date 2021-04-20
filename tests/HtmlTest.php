@@ -11,6 +11,10 @@ class HtmlTest extends TestCase
     {
         return [
             [
+                'gou1\'s club',
+                'gou1\'s club',
+            ],
+            [
                 '$cfeg$fff๐u1 $666ツ',
                 '<span style="color:#cfe;">g</span><span style="color:#fff;">๐u1 </span><span style="color:#666;">ツ</span>'
             ],
