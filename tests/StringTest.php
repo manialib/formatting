@@ -26,7 +26,7 @@ class StringTest extends TestCase
     {
         return [
             ['$cfeg$fff๐u1 $666ツ', 'g๐u1 ツ'],
-            ['$u$l[http://google.fr]google$l', 'google']
+            ['$u$l[http://google.fr]google$l', 'google'],
         ];
     }
 
@@ -36,6 +36,23 @@ class StringTest extends TestCase
     public function testStripAll($input, $expected)
     {
         $this->assertEquals($expected, (new ManiaplanetString($input))->stripAll());
+    }
+
+    public function stripColorsProvider()
+    {
+        return [
+            ['$f20x', 'x'],
+            ['$17x$17x$17x$17x$17x$17x', 'xxxxxx'],
+            ['$1x', 'x'],
+        ];
+    }
+
+    /**
+     * @dataProvider stripColorsProvider
+     */
+    public function testStripColors($input, $expected)
+    {
+        $this->assertEquals($expected, (new ManiaplanetString($input))->stripColors());
     }
 
     public function stripLinksProvider()
@@ -55,6 +72,4 @@ class StringTest extends TestCase
     {
         $this->assertEquals($expected, (new ManiaplanetString($input))->stripLinks());
     }
-
-
 }

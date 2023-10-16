@@ -73,7 +73,7 @@ class ManiaplanetString implements StringInterface
 
     public function stripColors()
     {
-        $this->string = preg_replace('/(?<!\$)((?:\$\$)*)\$(?:[0-9a-f][^\$]{0,2})/iu', '$1', $this->string);
+        $this->string = preg_replace('/(?<!\$)((?:\$\$)*)\$(?:[0-9a-f]{0,3})/iu', '$1', $this->string);
 
         return $this;
     }
