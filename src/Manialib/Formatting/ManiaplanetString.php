@@ -66,7 +66,9 @@ class ManiaplanetString implements StringInterface
 
     public function stripAll()
     {
+        var_dump($this->string);
         $this->string = preg_replace('/(?<!\$)((?:\$\$)*)\$[^$0-9a-fhlp\[\]]/iu', '$1', $this->string);
+        var_dump($this->string);
 
         return $this->stripEscapeCharacters()->stripLinks()->stripColors();
     }
