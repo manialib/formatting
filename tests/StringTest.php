@@ -27,6 +27,9 @@ class StringTest extends TestCase
         return [
             ['$cfeg$fff๐u1 $666ツ', 'g๐u1 ツ'],
             ['$u$l[http://google.fr]google$l', 'google'],
+            ['$17x$17x$17x$17x$17x$17x', 'xxxxxx'],
+            ['$$0', '$0'],
+            ['$fff$$000', '$000']
         ];
     }
 
@@ -44,6 +47,7 @@ class StringTest extends TestCase
             ['$f20x', 'x'],
             ['$17x$17x$17x$17x$17x$17x', 'xxxxxx'],
             ['$1x', 'x'],
+            ['$fff$$000', '$000'],
         ];
     }
 
