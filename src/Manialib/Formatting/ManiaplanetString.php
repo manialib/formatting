@@ -106,11 +106,8 @@ class ManiaplanetString implements StringInterface
 
     protected function doStripEscapedCharacters(array $codes = array('$', '[', ']'))
     {
-        var_dump($this->string);
         $pattern = sprintf('/\$([%s])/iu', addcslashes(implode('', $codes), '$[]'));
-        var_dump($pattern);
         $this->string = preg_replace($pattern, '$1', $this->string);
-        var_dump($this->string);
 
         return $this;
     }
