@@ -73,8 +73,8 @@ abstract class Parser implements ConverterInterface
                 continue;
             }
 
-            $value = $this->lexer->lookahead['value'];
-            switch ($this->lexer->lookahead['type']) {
+            $value = $this->lexer->lookahead->value;
+            switch ($this->lexer->lookahead->type) {
                 case Lexer::T_NONE:
                     $this->none(htmlspecialchars($value, ENT_COMPAT | ENT_SUBSTITUTE, 'UTF-8'));
                     break;
@@ -177,14 +177,14 @@ abstract class Parser implements ConverterInterface
     private function getLink()
     {
         $link = '';
-        if (substr($this->lexer->lookahead['value'], 1, 1) == '['
-            && substr($this->lexer->lookahead['value'], -1, 1) == ']'
+        if (substr($this->lexer->lookahead->value, 1, 1) == '['
+            && substr($this->lexer->lookahead->value, -1, 1) == ']'
         ) {
             //We are looking for a link like $h[xxx]yyy$h
             $this->lexer->moveNext();
             $matches = array();
             if ($this->lexer->lookahead
-                && preg_match('/^\[([^\]]*)\]$/iu', $this->lexer->lookahead['value'], $matches)
+                && preg_match('/^\[([^\]]*)\]$/iu', $this->lexer->lookahead->value, $matches)
             ) {
                 $link = $matches[1];
             }
@@ -198,15 +198,15 @@ abstract class Parser implements ConverterInterface
             do {
                 $nextLookahead = $this->lexer->peek();
                 if ($nextLookahead
-                    && ($nextLookahead['type'] == Lexer::T_NONE || $nextLookahead['type'] == Lexer::T_ESCAPED_CHAR)
+                    && ($nextLookahead->type === Lexer::T_NONE || $nextLookahead->type === Lexer::T_ESCAPED_CHAR)
                 ) {
-                    $link .= $nextLookahead['value'];
+                    $link .= $nextLookahead->value;
                     if (substr($link, 0, 1) == '[') {
                         //It means that there is no closing square bracket $l[noclosingsquarebracket
                         array_push($this->lookaheadToSkip, $nextLookahead);
                     }
                 }
-            } while ($nextLookahead !== null && !in_array($nextLookahead['type'], $endLinkTokens));
+            } while ($nextLookahead !== null && !in_array($nextLookahead->type, $endLinkTokens));
 
             if (substr($link, 0, 1) == '[') {
                 //It means that there is no closing square bracket $l[noclosingsquarebracket
