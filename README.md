@@ -22,7 +22,7 @@ Find out more in the [change log](CHANGELOG.md).
 
 ## Requirements
 
-- PHP 5.5+
+- PHP 8.1+
 
 ## Installation
 
