@@ -27,7 +27,7 @@
     },
     "require": {
         "php": "^8.1",
-        "doctrine/lexer": "^3.0"
+        "doctrine/lexer": "^2.0 || ^3.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "@stable",
