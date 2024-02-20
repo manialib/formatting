@@ -68,7 +68,7 @@ class ManiaplanetString implements StringInterface
     {
         $this->string = preg_replace('/(?<!\$)((?:\$\$)*)\$[^$0-9a-fhlp\[\]]/iu', '$1', $this->string);
 
-        return $this->stripEscapeCharacters()->stripLinks()->stripColors();
+        return $this->stripLinks()->stripColors()->stripEscapeCharacters();
     }
 
     public function stripColors()

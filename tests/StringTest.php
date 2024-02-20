@@ -27,6 +27,7 @@ class StringTest extends TestCase
         return [
             ['$cfeg$fff๐u1 $666ツ', 'g๐u1 ツ'],
             ['$u$l[http://google.fr]google$l', 'google'],
+            ['$$l[ImAnIdiotTryingToAbuse]', '$$l[ImAnIdiotTryingToAbuse]'],
         ];
     }
 
@@ -58,6 +59,7 @@ class StringTest extends TestCase
     public function stripLinksProvider()
     {
         return [
+            ['$$l[ImAnIdiotTryingToAbuse]', '$$l[ImAnIdiotTryingToAbuse]'],
             ['$ltest$l', 'test'],
             ['$l[link]test$l', 'test'],
             ['$htest$h', 'test'],
