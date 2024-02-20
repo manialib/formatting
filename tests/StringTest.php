@@ -27,7 +27,7 @@ class StringTest extends TestCase
         return [
             ['$cfeg$fff๐u1 $666ツ', 'g๐u1 ツ'],
             ['$u$l[http://google.fr]google$l', 'google'],
-            ['$$l[ImAnIdiotTryingToAbuse]', '$$l[ImAnIdiotTryingToAbuse]'],
+            ['$$l[ImAnIdiotTryingToAbuse]', '$l[ImAnIdiotTryingToAbuse]'],
         ];
     }
 
